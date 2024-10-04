@@ -75,6 +75,13 @@ The dataset contains air quality data from multiple monitoring stations across B
     `pip install -r requirements.txt`.
 
 3. Load the dataset by running the code in the notebook.
-4. Use the provided scripts for data cleaning, analysis, and visualization.
+
+## Run steamlit app
+1. Navigate to dashboard directory
+   
+     `cd dashboard`
+3. Run streamlit app
+
+     `streamlit run dashboard.py`
 
 ---
