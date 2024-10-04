@@ -9,7 +9,7 @@
 This project analyzes an air quality dataset from various stations in China. The data includes key air quality parameters like PM2.5, PM10, SO2, NO2, CO, O3, along with meteorological data like temperature, pressure, and wind speed.
 
 ## Streamlit Dashboard
-
+https://salsa-az-proyek-belajar-analisis-data-dashboarddashboard-3dikow.streamlit.app/
 
 ### Business Questions:
 
@@ -64,6 +64,12 @@ The dataset contains air quality data from multiple monitoring stations across B
 ## How to Run the Project
 
 1. Clone this repository.
+2. Navigate to the project directory.
+
+    `cd proyek-belajar-analisis-data`
+    `pipenv install`
+    `pipenv shell`
+
 2. Ensure you have the required Python libraries installed by running 
 
     `pip install -r requirements.txt`.
