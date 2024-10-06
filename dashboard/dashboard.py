@@ -137,7 +137,7 @@ plt.tight_layout()
 st.pyplot(fig)
 
 # Add Folium map
-st.subheader("Air Quality Index Heatmap")
+st.subheader("Air Quality Index Geomap")
 
 # Interactive widgets for map
 selected_year = st.selectbox("Select year", list(range(2013, 2018)))
