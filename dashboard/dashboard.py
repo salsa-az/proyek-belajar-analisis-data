@@ -156,16 +156,31 @@ heat_data = [[row['latitude'], row['longitude'], row[selected_param]] for _, row
 # Add heatmap to the map
 HeatMap(heat_data, radius=15, blur=10, max_zoom=1, gradient={0.4: 'blue', 0.65: 'lime', 0.8: 'yellow', 1: 'red'}).add_to(m)
 
-# Add markers with station names
+# Add markers with station names and additional details
 for station, coords in station_coords.items():
+    # Calculate average values for the station
+    station_data = all_df[all_df['station'] == station][numerical_columns].mean()
+    popup_text = f"""
+    <b>Station:</b> {station}<br>
+    <b>PM2.5:</b> {station_data['PM2.5']:.2f}<br>
+    <b>PM10:</b> {station_data['PM10']:.2f}<br>
+    <b>SO2:</b> {station_data['SO2']:.2f}<br>
+    <b>NO2:</b> {station_data['NO2']:.2f}<br>
+    <b>CO:</b> {station_data['CO']:.2f}<br>
+    <b>O3:</b> {station_data['O3']:.2f}
+    """
+    
     folium.Marker(
         location=[coords[1], coords[0]],
-        popup=station,
-        tooltip=station
+        popup=folium.Popup(popup_text, max_width=300),
+        tooltip=station,
+        icon=folium.Icon(color='blue', icon='info-sign')
     ).add_to(m)
 
 # Display the map
 st_folium(m, width=700, height=500)
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 st.header("Conclusions")
 st.markdown("""
